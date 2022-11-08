@@ -1,6 +1,6 @@
 .idea/
 new_folder/
 venv/
-#.gitignore
+.gitignore
 /fourth_modified.txt
 /third_modified.py
