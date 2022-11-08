@@ -1,0 +1,6 @@
+.idea/
+new_folder/
+venv/
+#.gitignore
+/fourth_modified.txt
+/third_modified.py
