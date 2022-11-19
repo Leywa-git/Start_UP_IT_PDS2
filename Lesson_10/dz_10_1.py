@@ -4,6 +4,7 @@
 Введіть букву, або слово для виклику TypeError
 """
 import sys
+import time
 
 
 def month_number():
@@ -33,11 +34,15 @@ def month_number():
         return print(result)
 
     except ValueError as ex:
-        print("You entered a number with digit", file=sys.stderr)
+        print("You entered a number with digit, enter the month number!", file=sys.stderr)
         print(ex)
+        time.sleep(0.1)     # Бібліотека time та функція sleep використані для гарнішого відображення
+        month_number()
     except TypeError as ex:
-        print("You entered a word or an alphabetical character", file=sys.stderr)
+        print("You entered a word or an alphabetical character, enter the month number!", file=sys.stderr)
         print(ex)
+        time.sleep(0.1)
+        month_number()
     except Exception as ex:
         print("Unexpected Error occurred, please, contact our support", file=sys.stderr)
         print(ex)
