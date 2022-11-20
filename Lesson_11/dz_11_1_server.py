@@ -8,6 +8,9 @@ print("Server is running, press CTRL+C to stop")
 conn, addr = sock.accept()
 print("Received connection from:", addr)
 
+greeting = "Hello! You are connected to Server."
+conn.send(greeting.encode())
+
 while True:
     print("Awaiting for the client inquiry")
     message = conn.recv(1024)

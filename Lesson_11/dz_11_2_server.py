@@ -8,6 +8,10 @@ print("Server is running, press CTRL+C to stop")
 conn, addr = sock.accept()
 print("Received connection from:", addr)
 
+greeting = "Hello! You are connected to Server.\n" \
+           "Please, enter 1 for weather forecast, 2 for sport news, 3 to say bye"
+conn.send(greeting.encode())
+
 answers = {
     "hello": "Greetings! How may i serve You?",
     "who are you?": "I am limited chat-bot",
@@ -22,8 +26,8 @@ def chat_bot(message):
         print(f"auto-response to client: {message}")
         return message
     else:
-        message = "please, enter 1 for weather forecast, 2 for sport news, 3 to say bye"
-        print("Instructions sent")
+        message = input("Enter the message: ")
+        print("Server:", message)
         return message
 
 

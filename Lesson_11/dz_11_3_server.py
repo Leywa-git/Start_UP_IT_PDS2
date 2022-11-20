@@ -8,6 +8,11 @@ print("Server is running, press CTRL+C to stop")
 conn, addr = sock.accept()
 print("Received connection from:", addr)
 
+greeting = "Hello! You are connected to Server.\n" \
+           "Server will count words you entered.\n" \
+           "Numbers are not counted"
+conn.send(greeting.encode())
+
 while True:
     message = conn.recv(1024)
     message = message.decode()
