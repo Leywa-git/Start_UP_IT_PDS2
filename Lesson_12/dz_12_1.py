@@ -11,27 +11,27 @@ def factorial_calculate(number):
     return number
 
 
-numbers = range(300)
+numbers_1 = range(80)
+numbers_2 = range(70)
 
 if __name__ == "__main__":
-    with concurrent.futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         start_1 = time.time()
-        results = executor.map(factorial_calculate, numbers)
-        result = list(results)
+        task_1 = executor.map(factorial_calculate, numbers_1)
+        task_2 = executor.map(factorial_calculate, numbers_2)
+        result = list(task_1) + list(task_2)
         print(result)
         end_1 = time.time() - start_1
-        result = end_1
-        print(result)
+        print(end_1)
 
-if __name__ == "__main__":
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=10) as executor:
         start_2 = time.time()
-        results = executor.map(factorial_calculate, numbers)
-        result = list(results)
+        task_1 = executor.map(factorial_calculate, numbers_1)
+        task_2 = executor.map(factorial_calculate, numbers_2)
+        result = list(task_1) + list(task_2)
         print(result)
         end_2 = time.time() - start_2
-        result = end_2
-        print(result)
+        print(end_2)
 
         print(f"{end_1} - ThreadPoolExecutor, {end_2} - ProcessPoolExecutor")
         if end_1 > end_2:
