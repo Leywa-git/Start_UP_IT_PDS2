@@ -13,21 +13,21 @@ greeting = "Hello! You are connected to Server."
 conn.send(greeting.encode())
 
 
-async def regular_numbers(data):
+async def addition():
     first_number, second_number = [data[i] for i in (0, 1)]
-    operation = f"{first_number} + {second_number} = {first_number + second_number}"
-    await asyncio.sleep(1)
-    operation = f"{first_number} - {second_number} = {first_number - second_number}"
-    message = operation
+    message = f"{first_number} + {second_number} = {first_number + second_number}"
     return message
 
 
-async def multi_numbers():
+async def subtraction():
     first_number, second_number = [data[i] for i in (0, 1)]
-    operation = f"{first_number} * {second_number} = {first_number * second_number}"
-    await asyncio.sleep(3)
-    operation = f"{first_number} / {second_number} = {first_number / second_number}"
-    message = operation
+    message = f"{first_number} - {second_number} = {first_number - second_number}"
+    return message
+
+
+async def multiply():
+    first_number, second_number = [data[i] for i in (0, 1)]
+    message = f"{first_number} * {second_number} = {first_number * second_number}"
     return message
 
 
@@ -37,9 +37,8 @@ while True:
     message = message.decode()
     print("Client:", message)
     data = message.split()
-    coroutine = regular_numbers(list)
-    coroutine.send(None)
-    coroutine = multi_numbers(list)
-    coroutine.send(None)
+    addition().send(data)
+    subtraction().send(data)
+    multiply().send(data)
     conn.send(message.encode())
 conn.close()
