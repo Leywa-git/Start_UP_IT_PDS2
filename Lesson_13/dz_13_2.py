@@ -26,17 +26,13 @@ def insertion_sort(data):
 
 def average_sort_time(list_name, cycle_quantity):
     counter = cycle_quantity
-    cycles = []
-    end_time = 0
-    while counter != 0:
+    cycle = 0
+    for i in range(counter):
         start_time = time.time()
         insertion_sort(list_name)
-        end_time += time.time() - start_time
-        cycles.append(end_time)
-        counter -= 1
-    print(cycles)
-    average = sum(cycles) / len(cycles)
-    return print(f"Average sort time for {cycle_quantity} insertion sort cycles: {average}")
+        cycle += time.time() - start_time
+    average = cycle / counter
+    return print(f"Average sort time for {counter} insertion sort cycles: {average}")
 
 
 average_sort_time(int_list, 10)
