@@ -14,7 +14,7 @@ def main():
     conn, addr = sock.accept()
     print("Received connection from:", addr)
 
-    greeting = "Hello! You are connected to Server. Press CTRL+C to exit the server. Type 0 if You are not interested."
+    greeting = "Hello! You are connected to Server. Press CTRL+C to exit the server."
     conn.send(greeting.encode())
     logging.info("Server is up")
 
