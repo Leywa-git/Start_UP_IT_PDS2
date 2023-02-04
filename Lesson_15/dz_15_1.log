@@ -1,0 +1,36 @@
+2023-02-05 00:43:01,679 - INFO - Server is up
+2023-02-05 00:43:04,615 - WARNING - avoid client in the future
+2023-02-05 00:43:12,551 - WARNING - avoid client in the future
+2023-02-05 00:43:20,527 - WARNING - avoid client in the future
+2023-02-05 00:44:25,131 - INFO - Server is up
+2023-02-05 00:44:27,422 - WARNING - avoid client in the future
+2023-02-05 00:46:05,614 - INFO - Server is up
+2023-02-05 00:46:08,907 - WARNING - avoid client in the future
+2023-02-05 00:48:05,396 - INFO - Server is up
+2023-02-05 00:48:08,286 - INFO - Client:hi
+2023-02-05 00:48:08,287 - WARNING - avoid client in the future
+2023-02-05 00:48:16,317 - INFO - Client:get lost
+2023-02-05 00:48:16,317 - WARNING - avoid client in the future
+2023-02-05 00:49:55,020 - INFO - Server is up
+2023-02-05 00:49:57,467 - INFO - Client:hi
+2023-02-05 00:49:57,468 - WARNING - avoid client in the future
+2023-02-05 00:50:04,865 - INFO - Client:fu
+2023-02-05 00:50:04,866 - WARNING - avoid client in the future
+2023-02-05 00:50:12,600 - ERROR - Server closed
+2023-02-05 00:51:35,092 - INFO - Server is up
+2023-02-05 00:51:38,162 - INFO - Client:hi
+2023-02-05 00:51:38,162 - WARNING - avoid client in the future
+2023-02-05 00:53:53,646 - ERROR - Server closed
+2023-02-05 00:54:01,461 - INFO - Server is up
+2023-02-05 00:54:06,332 - INFO - Client:hi
+2023-02-05 00:54:14,529 - INFO - Client:what
+2023-02-05 00:56:52,389 - INFO - Server is up
+2023-02-05 00:56:57,184 - INFO - Client:hi
+2023-02-05 00:57:27,723 - INFO - Client:0
+2023-02-05 00:57:55,653 - ERROR - Server closed
+2023-02-05 01:00:13,492 - INFO - Server is up
+2023-02-05 01:00:16,529 - INFO - Client:hi
+2023-02-05 01:00:32,671 - ERROR - Client disconnect
+2023-02-05 01:00:45,150 - INFO - Server is up
+2023-02-05 01:00:50,961 - INFO - Client:hello
+2023-02-05 01:00:54,705 - WARNING - Server closed

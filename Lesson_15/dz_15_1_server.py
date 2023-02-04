@@ -3,42 +3,36 @@ import logging
 
 
 def main():
-    logger = logging.getLogger("dz_15_1_logger.conf")
-    logger.setLevel(logging.DEBUG)
 
-    fh = logging.FileHandler("dz_15_1.log")
+    logging.basicConfig(level=logging.INFO, filename="dz_15_1.log", format="%(asctime)s - %(levelname)s - %(message)s")
 
-    formatter = logging.Formatter('server %(asctime)s - %(levelname)s - %(message)s')
-    fh.setFormatter(formatter)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(("", 60000))
+    sock.listen(10)
+    print("Server is running, press CTRL+C to stop")
 
-    logger.addHandler(fh)
+    conn, addr = sock.accept()
+    print("Received connection from:", addr)
 
-    try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.bind(("", 60000))
-        sock.listen(10)
-        print("Server is running, press CTRL+C to stop")
-
-        conn, addr = sock.accept()
-        print("Received connection from:", addr)
-
-        greeting = "Hello! You are connected to Server."
-        conn.send(greeting.encode())
-        logging.info("Server is up")
-    except Exception:
-        logging.error("Server does not respond")
+    greeting = "Hello! You are connected to Server. Press CTRL+C to exit the server. Type 0 if You are not interested."
+    conn.send(greeting.encode())
+    logging.info("Server is up")
 
     while True:
         print("Awaiting for the client inquiry")
         message = conn.recv(1024)
         message = message.decode()
         print("Client:", message)
-        if message == "get lost":
-            logging.warning("avoid client in the future")
+        logging.info("Client:" + message)
         message = input("Enter the answer: ")
         conn.send(message.encode())
     conn.close()
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        logging.warning("Server closed")
+    except Exception:
+        logging.error("Client disconnect")
