@@ -4,9 +4,8 @@ from dz_15_2 import nodes, root_node
 
 
 def test_append_new_nodes():
-    original = Tree
-    modified = root_node.append_new_nodes(nodes)
-    assert original != modified
+    root_node.append_new_nodes(nodes)
+    assert root_node.min_node() == 1
 
 
 def test_min_node():
