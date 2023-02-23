@@ -1,11 +1,11 @@
 USE pds;
-#1
-SELECT * FROM employees ORDER BY first_name;
-#2
-SELECT first_name, last_name, salary, salary * 0.15 AS tax FROM employees;
-#3
-SELECT SUM(salary) AS total_salary FROM employees;
-#4
-SELECT MAX(salary) AS max_salary, MIN(salary) AS min_salary FROM employees;
-#5
-SELECT AVG(salary) AS average_salary, COUNT(employee_id) AS total_employees FROM employees;
+-- 1
+SELECT * FROM employees ORDER BY FIRST_NAME;
+-- 2
+SELECT FIRST_NAME, LAST_NAME, SALARY, SALARY * 0.15 AS TAX FROM employees;
+-- 3
+SELECT SUM(SALARY) AS TOTAL_SALARY FROM employees;
+-- 4
+SELECT MAX(SALARY) AS MAX_SALARY, MIN(SALARY) AS MIN_SALARY FROM employees;
+-- 5
+SELECT AVG(SALARY) AS AVERAGE_SALARY, COUNT(EMPLOYEE_ID) AS TOTAL_EMPLOYEES FROM employees;
