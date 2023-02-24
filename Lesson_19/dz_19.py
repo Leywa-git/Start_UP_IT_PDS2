@@ -18,7 +18,7 @@ nx.draw_networkx(g, pos)
 plt.title("cities.csv")
 plt.show()
 
-print("Graph of cities from file cities.csv has been built and drawn.")
+print("Graph of cities from file cities.csv has been built and drawn")
 
 # 2 - creating a function to get the minimal length of path between two cities
 
