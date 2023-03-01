@@ -10,25 +10,47 @@ class Matrix:
 
     def __add__(self, other):
         if self.n != other.n or self.m != other.m:
-            raise ValueError("Matrix sizes do not match")
-        add = []
-        for i in range(self.n):
-            n = []
-            for j in range(self.m):
-                n.append(self.matrix[i][j] + other.matrix[i][j])
-            add.append(n)
-        return Matrix(add)
+            n_max = max(self.n, other.n)
+            m_max = max(self.m, other.m)
+            self_adjust = self.adjust(n_max, m_max)
+            other_adjust = other.adjust(n_max, m_max)
+            add = []
+            for i in range(n_max):
+                n = []
+                for j in range(m_max):
+                    n.append(self_adjust.matrix[i][j] + other_adjust.matrix[i][j])
+                add.append(n)
+            return Matrix(add)
+        else:
+            add = []
+            for i in range(self.n):
+                n = []
+                for j in range(self.m):
+                    n.append(self.matrix[i][j] + other.matrix[i][j])
+                add.append(n)
+            return Matrix(add)
 
     def __sub__(self, other):
         if self.n != other.n or self.m != other.m:
-            raise ValueError("Matrix sizes do not match")
-        sub = []
-        for i in range(self.n):
-            n = []
-            for j in range(self.m):
-                n.append(self.matrix[i][j] - other.matrix[i][j])
-            sub.append(n)
-        return Matrix(sub)
+            n_max = max(self.n, other.n)
+            m_max = max(self.m, other.m)
+            self_adjust = self.adjust(n_max, m_max)
+            other_adjust = other.adjust(n_max, m_max)
+            add = []
+            for i in range(n_max):
+                n = []
+                for j in range(m_max):
+                    n.append(self_adjust.matrix[i][j] - other_adjust.matrix[i][j])
+                add.append(n)
+            return Matrix(add)
+        else:
+            sub = []
+            for i in range(self.n):
+                n = []
+                for j in range(self.m):
+                    n.append(self.matrix[i][j] - other.matrix[i][j])
+                sub.append(n)
+            return Matrix(sub)
 
     def mul_int(self, int):
         mul_int = []
@@ -63,6 +85,20 @@ class Matrix:
             tps.append(n)
         return Matrix(tps)
 
+    def adjust(self, n, m):
+        if n == self.n and m == self.m:
+            return self
+        result = []
+        for i in range(n):
+            n = []
+            for j in range(m):
+                if i < self.n and j < self.m:
+                    n.append(self.matrix[i][j])
+                else:
+                    n.append(0)
+            result.append(n)
+        return Matrix(result)
+
 
 A = Matrix([[8, -2, 1], [5, 0, 3], [9, 7, 1]])
 B = Matrix([[0, 7, 4], [-1, 0, 7], [8, 1, 3]])
@@ -71,6 +107,9 @@ D = A - B
 E = A.mul_int(4)
 F = A * B
 G = A.transpose()
+H = Matrix([[1, 0, 2, -3], [7, 0, 2, 1]])
+K = A + H
+M = H - B
 print("A:")
 A.m_print()
 print("B:")
@@ -85,3 +124,9 @@ print("A * B:")
 F.m_print()
 print("A transpose:")
 G.m_print()
+print("H:")
+H.m_print()
+print("A + H")
+K.m_print()
+print("H - B")
+M.m_print()
